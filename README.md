@@ -2,6 +2,7 @@
 Deploy to AWS with Terraform and Ansible
 
 <strong>Setup</strong>
+
 O primeiro passo será criamos um usuário dentro de nossa conta na AWS, para utilizar com o Terraform e Ansible.
 
 Este passo permitirá que o Terraform consiga utilizar os recursos da API da AWS para criar a infraestrutura e para
