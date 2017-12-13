@@ -109,4 +109,4 @@ Estamos terminando quase nossa sessão de setup, agora vamos realizar a instala�
  yum install -y ansible
  ```
  
- <strong> Em construço </strong>
+ <strong> Em construção </strong>
