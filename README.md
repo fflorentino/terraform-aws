@@ -15,7 +15,7 @@ faço o download da <strong>Access Key</strong> e <strong>Secret Key</strong>
 Após realizar a criação do usuário e efetuar o download das chaves, crie uma instância EC2 com Centos 7.
 
 Dentro desta instância vamos checar se o Pyhton esta instalado
-...
+'''
 $ python --version
-...
+'''
 
