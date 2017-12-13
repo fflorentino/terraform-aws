@@ -1,6 +1,14 @@
 # terraform-aws
 Deploy to AWS with Terraform and Ansible
 
+Qual a finalidade deste respositório?
+```
+Criar um ambiente WordPress na AWS utilizando Terraform and Ansible
+Vamos criar automaticamente todos os recursos de infra e também a instalação do Wordpress
+Serviços na AWS:
+VPC, S3, RDS, EC2, LC/ASG, ELB, Route53 (Criação dos registros)
+```
+
 <strong>Setup</strong>
 
 O primeiro passo será criamos um usuário dentro de nossa conta na AWS, para utilizar com o Terraform e Ansible.
