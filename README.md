@@ -11,6 +11,7 @@ Serviços na AWS:
 VPC, S3, RDS, EC2, LC/ASG, ELB, Route53 (Criação dos registros)
 ```
 
+
 <strong>Qual a grande vantagem em utiizar o Terraform?</strong>
 
 Você pode começar a versionar sua infraestrutura na nuvem, como versiona os códigos de seu app.
@@ -22,6 +23,7 @@ Ou seja, se um recurso começa a apresentar muitos problemas, ao invés de perde
 você pode substituí-lo.
 lol
 
+![alt text](https://user-images.githubusercontent.com/33163017/33994084-4a213930-e0c0-11e7-9a4c-eee433ca6e74.png)
 
 <strong>Setup</strong>
 
