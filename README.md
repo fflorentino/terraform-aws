@@ -39,6 +39,21 @@ Após isso, tudo que configuramos estará disponível dentro da AWS.
 O Ansible é utilizado para realizar as configurações na instância que hospedará o app.
 </blockquote>
 
+<h2>O que vou executar neste tutorial?</h2>
+<blockquote>
+<p>
+Eu vou subir um framework de PHP chamado Yii2.
+Ele será hospedado em uma EC2, sendo servido pelo Nginx com SSL.
+</p>
+<p>
+Essa configuração terá um Load Balance para balanceamento de cargo e Auto Scaling.
+Também será efetuado a criação deste dominio e ao final será possvel acessa-lo,
+sem efetuar nada manual na AWS.
+</p>
+ 
+Isso pode ser utilizado por equipes de implantaço para realizar migraço de todo um sistema para a AWS.
+</blockquote>
+
 <strong>Setup</strong>
 
 O primeiro passo será criamos um usuário dentro de nossa conta na AWS, para utilizar com o Terraform e Ansible.
