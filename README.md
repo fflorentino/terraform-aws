@@ -234,4 +234,111 @@ aws_region = "sa-east-1"
  </p>
  </blockquote>
  
+ <h2> Esboço do Terraform main.tf</h2>
+ COLOCAR AINDA
+
+<h2>Construindo nossa infraestrutura</h2>
+
+Vamos editar nosso arquivo main.tf e começar a montar nossa infraestrutura, vamos seguir o roteiro acima, 
+da lógica das criações.
+
+Estes arquivos estão dentro do nosso diretório de trabalho como foram criados anteriormente.
+
+Como este diretório esta no home do meu root.
+```
+vim deployblog/main.tf
+```
+Vamos colocar neste arquivo o conteúdo abaixo:
+```hcl
+#Criando a VPC
+resource "aws_vpc" "vpc" {
+  cidr_block = "10.1.0.0/16"
+}
+#Criando Internet Gateway
+resource "aws_internet_gateway" "internet_gateway" {
+  vpc_id = "${aws_vpc.vpc.id}"
+}
+# Create Route Tables
+#Public Route Table
+resource "aws_route_table" "public" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  route {
+        cidr_block = "0.0.0.0/0"
+	gateway_id = "${aws_internet_gateway.internet_gateway.id}"
+	}
+  tags {
+	Name = "public"
+  }
+}
+#Private Route Table
+resource "aws_default_route_table" "private" {
+  default_route_table_id = "${aws_vpc.vpc.default_route_table_id}"
+  tags {
+    Name = "private"
+  }
+}
+#Criando as subnets
+#Public Subnet
+resource "aws_subnet" "public" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.1.0/24"
+  map_public_ip_on_launch = true
+  availability_zone = "sa-east-1a"
+  tags {
+    Name = "public"
+  }
+}
+#Private Subnet1
+resource "aws_subnet" "private1" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.2.0/24"
+  map_public_ip_on_launch = false
+  availability_zone = "sa-east-1c"
+  tags {
+    Name = "private1"
+  }
+}
+#Private Subnet2
+resource "aws_subnet" "private2" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.3.0/24"
+  map_public_ip_on_launch = false
+  availability_zone = "sa-east-1c"
+  tags {
+    Name = "private2"
+  }
+}
+#Private RDS1
+resource "aws_subnet" "rds1" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.4.0/24"
+  map_public_ip_on_launch = false
+  availability_zone = "sa-east-1c" 
+  tags {
+    Name = "rds1"
+  }
+}
+#Private RDS2
+resource "aws_subnet" "rds2" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.5.0/24"
+  map_public_ip_on_launch = false
+  availability_zone = "sa-east-1c"
+  tags {
+    Name = "rds2"
+  }
+}
+#Private RDS3
+resource "aws_subnet" "rds3" {
+  vpc_id = "${aws_vpc.vpc.id}"
+  cidr_block = "10.1.6.0/24"
+  map_public_ip_on_launch = false
+  availability_zone = "sa-east-1c"
+  tags {
+    Name = "rds3"
+  }
+}
+```
+
+
  <strong> Em construção </strong>
