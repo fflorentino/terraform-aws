@@ -210,12 +210,28 @@ Editaremos agora o arquivo terraform.tfvars
 ```
 vim terraform.tfvars
 ```
-Cole o conteúdo abaixo:
+Copie o conteúdo abaixo:
 ```hcl
 aws_profile = "blogdeploy"
 aws_region = "sa-east-1"
 ```
-
-
+<strong>Explicação</strong>
+<blockquote>
+ <p>
+ Realizamos a criação de três aquivos, main.tf | variables.tf | terraform.tfvars
+ </p>
+ <p>
+ O arquivo <strong>main.tf:</strong> neste arquivo vamos realizar toda a configuraço na AWS,
+ como criação de VPC, e todos os recursos e serviços que vamos utilizar
+ </p>
+ <p>
+ O arquivo <strong>variables.tf:</strong> neste arquivo vamos dar nomes as variáveis que serão inseridas,
+ ao longo da codificaço do main.tf
+ </p>
+ <p>
+ O arquivo <strong>terraform.tfvars:</strong> neste arquivo vamos inserir os valores das variáveis do arquivo
+ variables.tf, isso para que no nosso código não tenham senhas, ou configuraçes de variáveis expostas.
+ </p>
+ </blockquote>
  
  <strong> Em construção </strong>
