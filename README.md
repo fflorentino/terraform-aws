@@ -6,7 +6,7 @@ Qual a finalidade deste respositório?
 Criarmos automaticamente um ambiente dentro da AWS, para que possamos realizar o deploy de um web app.
 Seja ele qual for, você pode adaptar este repositório para o seu projeto e assim realizar de maneira estratégica
 todos os passos para o deploy de seu app de uma maneira fácil e rápida.
-Executar apenas um comando.
+Executando apenas um comando.
 Serviços na AWS:
 VPC, S3, RDS, EC2, LC/ASG, ELB, Route53 (Criação dos registros)
 ```
