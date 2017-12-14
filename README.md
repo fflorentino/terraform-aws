@@ -339,6 +339,7 @@ resource "aws_subnet" "rds3" {
   }
 }
 ```
+<strong>Explicação: </strong>
 <blockquote>
 Nesta etapa realizamos a criação dos requisitos bsicos de rede,
 como VPC, Intenternet Gateway, Tabelas de Roteamento, Subnet pública e privadas.
@@ -441,6 +442,11 @@ ingress {
   }
 }
 ```
-
+<strong>Explicação:</strong>
+<blockquote>
+Acredito que o código assim esteja bem comentado,
+onde realizo a criação de mais alguns recursos dentro da AWS.
+</blockquote>
 
  <strong> Em construção </strong>
+ 
