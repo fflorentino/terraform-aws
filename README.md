@@ -162,5 +162,60 @@ Estamos terminando quase nossa sessão de setup, agora vamos realizar a instala�
 ```
  yum install -y ansible
  ```
+<h2>Projeto Passo-a-Passo<h2>
+
+IMAGEMINFRAESTRUTURAFINAL
+
+<H2>Directory and File Setup</h2>
+
+Nesta etapa vamos começar a construir nosso projeto, vamos criar um diretório que será o padrão,
+para os nosso script, será nosso diretório de trabalho.
+
+Eu vou criar no "~" do root, um diretório chamado: <strong>deployblog</strong>
+```
+mkdir deployblog
+```
+Agora acessamos este diretório e vamos criar três arquivos:
+
+- main.tf
+
+- variables.tf
+
+- terraform.tfvars
+```
+cd deployblog
+touch main.tf ; touch variables.tf ; touch terraform.tfvars
+```
+Feito isso, vamos editar o arquivo main.tf
+```
+vim main.tf
+```
+Aqui será definido nosso provedor de Cloud, e também variáveis referentes a acces key e região na AWS
+```hcl
+provider "aws" {
+    region = "${var.aws_region}"
+    profile = "${var.aws_profile}"
+}
+```
+Agora vamos editar o arquivo variables.tf, onde colocaremos os valores das variáveis acima
+```
+vim varibales.tf
+```
+Adicione o seguinte conteúdo:
+```hcl
+variable "aws_region" {}
+variable "aws_profile" {}
+```
+Editaremos agora o arquivo terraform.tfvars
+```
+vim terraform.tfvars
+```
+Cole o conteúdo abaixo:
+```hcl
+aws_profile = "blogdeploy"
+aws_region = "sa-east-1"
+```
+
+
  
  <strong> Em construção </strong>
