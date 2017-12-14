@@ -14,7 +14,6 @@ VPC, S3, RDS, EC2, LC/ASG, ELB, Route53 (Criação dos registros)
 <strong>Qual a grande vantagem em utiizar o Terraform?</strong>
 
 Você pode começar a versionar sua infraestrutura na nuvem, como versiona os códigos de seu app.
-
 Uma vez versionada toda a sua infraestrutura, o Terraform pode implementá-la ou verificar a difenrença,
 entre o ambiente atual.
 
