@@ -17,6 +17,7 @@ Você pode começar a versionar sua infraestrutura na nuvem, como versiona os c�
 
 Uma vez versionada toda a sua infraestrutura, o Terraform pode implementá-la ou verificar a difenrença,
 entre o ambiente atual.
+
 Outro ponto importante, você pode para de resolver merda.
 Ou seja, se um recurso começa a apresentar muitos problemas, ao invés de perder horas tentando resolver este problema,
 você pode substituí-lo.
