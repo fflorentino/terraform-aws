@@ -25,6 +25,20 @@ lol
 
 ![alt text](https://user-images.githubusercontent.com/33163017/33994084-4a213930-e0c0-11e7-9a4c-eee433ca6e74.png)
 
+<blockquote>
+Na imagem ilustrativa acima, temos um servidor Linux, e nele instalado o Terraform e Ansible.
+
+Após a configurações do mesmo será necessário apenas efetuar  dois comandos.
+```
+$ terraform plan 
+$ terraform apply
+```
+O terraform plan, irá planejar toda a execução da nossa configuração e verificar se tudo poderia ser criado, caso sim, ele vai dar um resumo de tudo que será criado e você executará o "terraform apply" para efetivamente criar todos esses recurso.
+
+Após isso, tudo que configuramos estará disponível dentro da AWS.
+O Ansible é utilizado para realizar as configurações na instância que hospedará o app.
+</blockquote>
+
 <strong>Setup</strong>
 
 O primeiro passo será criamos um usuário dentro de nossa conta na AWS, para utilizar com o Terraform e Ansible.
