@@ -339,6 +339,108 @@ resource "aws_subnet" "rds3" {
   }
 }
 ```
+<blockquote>
+Nesta etapa realizamos a criação dos requisitos bsicos de rede,
+como VPC, Intenternet Gateway, Tabelas de Roteamento, Subnet pública e privadas.
+</blockquote>
+Nos precisaremos associar nossa subnet privada com nossa public route table
+para que o nosso load balance fique acessível pela Web.
+
+Editaremos novamente o arquivo main.tf.
+```
+vim deployblog/main.tf
+```
+Insira este conteúdo
+```hcl
+#Associação de Subnets
+#Associando a subnet publica a nossa tabela de roteamento publica
+resource "aws_route_table_association" "public_assoc" {
+  subnet_id = "${aws_subnet.public.id}"
+  route_table_id = "${aws_route_table.public.id}"
+}
+#Associando a subnet private1 a nossa table de roteamento publica
+#Isso é necessário para que o load balance seja acessivel pelo web
+resource "aws_route_table_association" "private1_assoc" {
+  subnet_id = "${aws_subnet.private1.id}"
+  route_table_id = "${aws_route_table.public.id}"
+}
+#Associando a subnet private2
+resource "aws_route_table_association" "private2_assoc" {
+  subnet_id = "${aws_subnet.private2.id}"
+  route_table_id = "${aws_route_table.public.id}"
+}
+#Agora nos vamos criar um grupo de subnet para nosso RDS
+resource "aws_db_subnet_group" "rds_subnetgroup" {
+  name = "rds_subnetgroup"
+  subnet_ids = ["${aws_subnet.rds1.id}", "${aws_subnet.rds2.id}", "${aws_subnet.rds3.id}"]
+  tags {
+    Name = "rds_sng"
+  }
+}
+#Agora vamos realizar a criação dos Security Groups
+#Public Security Group
+resource "aws_security_group" "public" {
+  name = "sg_public"
+  description = "Usado pelas instancias publicas e instancias privadas para acesso do load balancer"
+  vpc_id = "${aws_vpc.vpc.id}"
+ #Roles
+ #SSH
+  ingress {
+    from_port 	= 22
+    to_port 	= 22
+    protocol 	= "tcp"
+    cidr_blocks = ["${var.localip}"]
+  }
+  #HTTP 
+  ingress {
+    from_port 	= 80
+    to_port 	= 80
+    protocol 	= "tcp"
+    cidr_blocks	= ["0.0.0.0/0"]
+  }
+  #Outbound 
+  egress {
+    from_port	= 0
+    to_port 	= 0
+    protocol	= "-1"
+    cidr_blocks	= ["0.0.0.0/0"]
+  }
+}
+#Private Security Group
+resource "aws_security_group" "private" {
+  name        = "sg_private"
+  description = "Used for private instances"
+  vpc_id      = "${aws_vpc.vpc.id}"
+  
+#Acesso para os outros security groups
+  ingress {
+    from_port    = 0
+    to_port      = 0
+    protocol     = "-1"
+    cidr_blocks  = ["10.1.0.0/16"]
+  }
+  egress {
+    from_port    = 0
+    to_port      = 0
+    protocol     = "-1"
+    cidr_blocks  = ["0.0.0.0/0"]
+  }
+}
+#RDS Security Group
+resource "aws_security_group" "RDS" {
+  name= "sg_rds"
+  description = "Used for DB instances"
+  vpc_id      = "${aws_vpc.vpc.id}"
+# SQL access from public/private security group
+  
+ingress {
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "tcp"
+    security_groups  = ["${aws_security_group.public.id}", "${aws_security_group.private.id}"]
+  }
+}
+```
 
 
  <strong> Em construção </strong>
