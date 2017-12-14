@@ -168,7 +168,7 @@ IMAGEMINFRAESTRUTURAFINAL
 
 <H2>Directory and File Setup</h2>
 
-Nesta etapa vamos começar a construir nosso projeto, vamos criar um diretório que será o padrão,
+Nesta etapa vamos começar a construir nosso projeto, vamos criar um diretório que será o padrão
 para os nosso script, será nosso diretório de trabalho.
 
 Eu vou criar no "~" do root, um diretório chamado: <strong>deployblog</strong>
