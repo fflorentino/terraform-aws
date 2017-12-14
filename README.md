@@ -11,6 +11,18 @@ Serviços na AWS:
 VPC, S3, RDS, EC2, LC/ASG, ELB, Route53 (Criação dos registros)
 ```
 
+<strong>Qual a grande vantagem em utiizar o Terraform?</strong>
+
+Você pode começar a versionar sua infraestrutura na nuvem, como versiona os códigos de seu app.
+
+Uma vez versionada toda a sua infraestrutura, o Terraform pode implementá-la ou verificar a difenrença,
+entre o ambiente atual.
+Outro ponto importante, você pode para de resolver merda.
+Ou seja, se um recurso começa a apresentar muitos problemas, ao invés de perder horas tentando resolver este problema,
+você pode substituí-lo.
+lol
+
+
 <strong>Setup</strong>
 
 O primeiro passo será criamos um usuário dentro de nossa conta na AWS, para utilizar com o Terraform e Ansible.
