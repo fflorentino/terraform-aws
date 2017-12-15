@@ -42,7 +42,7 @@ O Ansible é utilizado para realizar as configurações na instância que hosped
 <h2>O que vou executar neste tutorial?</h2>
 <blockquote>
 <p>
-Eu vou subir um framework de PHP chamado Yii2.
+Eu vou subir um blog com Angular.JS.
 Ele será hospedado em uma EC2, sendo servido pelo Nginx com SSL.
 </p>
 <p>
